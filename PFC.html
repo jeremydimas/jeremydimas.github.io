@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Path Following Car - Jeremy Dimas</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			@font-face {
+				font-family: 'Lemon';
+				src: url('nexa_rust_sans/LEMONMILK-Regular.otf') format('opentype');
+			}
+			.custom-font {
+				font-family: 'Lemon', sans-serif;
+				text-align: left;
+			}
+			.gradient-text {
+				font-family: 'Lemon', sans-serif;
+				font-size: 18px; /* Adjust as needed */
+				
+				
+			}
+			.text-shadow {
+				text-shadow: 0 0 10px rgba(0, 0, 0, 0.348); /* Example shadow, adjust as needed */
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" style="font-family: 'Lemon', sans-serif; font-size: 25px; text-align: center; " class="logo">Project</a>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="Resume.html">Resume</a></li>
+							<!--<li class="active"><a href="elements.html"></a></li>-->
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/jeremydimas_" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.instagram.com/jeremy_dimas/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/jeremy-dimas/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1 style="font-family: 'Lemon', sans-serif; font-size: 45px; text-align: center; margin-top: 0 auto; ">
+										Path Following Car</h1>
+								</header>
+
+								<!-- Text stuff -->
+								<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Objective</h2>
+									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The objective of this class project is to 
+										program a TI-RSLK (car) using a micro-controller (Arduino) encoded using <b style="font-family: 'Lemon', sans-serif; font-size: 14px;  
+										color:white;">C++</b> syntax to follow and complete a 
+										path regardless of time or speed from a start position of the instructor's choice, paths 1-4, however extra-credit
+										 will be given for those who can get the car to complete the path under 20 seconds.</p>
+									<hr />
+									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Skills</h2>
+									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Throughout the course of the project, valuable engineering 
+										skills and techniques were learned such as using an <b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">oscilliscope</b> 
+										to measure voltage readings, analyzing infrared waves and 
+										readings, basics of circuit analysis and working with a breadboard, learning how to code in <b style="font-family: 'Lemon', sans-serif; 
+										font-size: 14px;  color:white;">Arduino (C++)</b>, how to document and plan accordingly, working under a deadline, and cooperating 
+										with a partner.</p>
+									<hr/>
+
+									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Race Track</h2>
+
+								<!--<h3>Fit</h3>-->
+								<span class="image fit"><img src="images/Path.png" alt=""/></span>
+								<hr/>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+									</div>
+								</div>
+
+								<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Process</h2>
+								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;"><span class="image left"><img src="images/Report.png" alt="" />
+								</span>We had <b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">5</b> weeks to develop a successful-working car 
+								so my partner and I made weekly objectives as we only had <b>4</b> hours a 
+								week of given lab-time to work on the car (excluding outside lab hours). We recorded our objectives and data in a lab notebook so we may build 
+								upon our trial-and-error success rate. Our <b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">5</b> weekly goals were 
+								as followed: Week 1: Record path sensor calibrations by analyzing average 
+								sensor levels and using the calibration data to perform sensor fusion; Week 2: Develop code to make the car follow the track line and use the 
+								data collected to trigger the sensors on or off so that the car is able to switch track lines successfully at the breakpoint; Week 3: Construct 
+								an algorithm that allows the car to turn after reaching the breakpoint so that the car can traverse the track again; Week 4: Implement some 
+								boolean that causes the car to stop at the finish line instead of turning and going into a loop; Week 5: After developing a safe code, work 
+								on getting the car to complete the track faster and receive extra credit on race day.</p>
+								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;"><span class="image right"><img src="images/CvsV.png" alt="" />
+								</span>We measured the voltage readings of the TI-RSLK's battery so we could accomodate for the infrared readings from the 
+								<b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">8 phototransistors</b> 
+								underneath the TI-RSLK. We analyzed the readings from the phototransistors on a software program called 
+								<b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Waveforms</b>. Waveforms displayed a chart 
+								with real-time-data of the change in lighting. This information is useful because this allowed us to know how the car would read the path. Since the 
+								car would follow a black line, we programmed the 2 centered phototransistors of the car to move forward with a reading of 2500 (2500 being the highest 
+								level of darkness) to follow the path.</p>
+								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;"><span class="image left"><img src="images/kpvskd.jpg" alt="" />
+								</span>While trying to get the car to move forward in a straight line, we noticed the car would oscillate on the path and then steer off-course. 
+								Through trial and error, my partner and I noticed that by increasing the <b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">derivative controller "Kd" (stability)</b> and decreasing the 
+								<b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">proportional controller "Kp" (base speed/power)</b> of the car allowed the car to move in a straight line successfully. After getting the 
+								car to successfully follow a straight line, we had to figure out how the car would realign itself at the breakpoint and continue moving. 
+								We noticed at first that the car would read part of the track before steering off-course at the breakpoint. With this in mind, we tested 
+								turning off the 4 phototransistors on the right and turning on the 4 transistors on the left of the car. With this attempt, the car was able 
+								to successfully realign itself at the breakpoint and continue following the track up to the turning point (straight-black line).</p>
+								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;"><span class="image fit"><img src="images/turncode.jpg" alt="" /></span>Originally we had programmed the car to stop at the black line by turning on all the 8 phototransistors to read a level of 2500, however now we needed the car to turn around. We changed the code so the car could stop after reading a level of 2500 twice knowing the car had completed the path. However, when the car would turn at 180 degrees, the car would turn around at the first endpoint and then stop. After numerous tests we noticed that the car could potentially be turning around too fast that the car was reading the line twice. We decreased the turn speed and noticed on various attempts that sometimes the car would turn around and move forward successfully and other attempts the car would turn slower than expected and steer off the track. Through numerous trial-and-error tests, we were able to find a turn speed that resolved both our issues and completing the track successfully.</p>
+								
+	
+								
+								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Once we got the car to complete the path, we looked towards 
+									how we can optimize the car's performance on the track. We created an encoder count that would allow the car to move at a high speed on 
+									straightaways, slow down when approaching and moving along the turn, then speed up leaving the turn. We thought we were finished until 
+									we came across an unexpected error in our car. We tested our car outdoors and our car failed to complete the track. After analyzing our 
+									readings, we noticed the car was failing due to the change of infrared lighting outdoors compared to indoors. We readjusted our parameters 
+									and made the accomodation for both indoors and outdoors. On race day, we let our car run without the encoder and the car finished at 32 
+									seconds. With the encoder, the car finished the track under 19 seconds, overall completing the track successfully and obtaining the extra credit.</p>
+								
+
+								
+									
+
+								
+								
+
+									<!--<form method="post" action="#">
+										<div class="row gtr-uniform">
+										</div>
+									</form>-->
+
+								<!-- Preformatted Code -->
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3 style="font-family: 'Lemon', sans-serif; color:white">Address</h3>
+							<p style="font-family: 'Lemon', sans-serif; color:white">405 Hilgard Avenue, Los Angeles, CA 90095<br />
+							<!--Nashville, TN 00000-0000--></p>
+						</section>
+						<section >
+							<h3 style="font-family: 'Lemon', sans-serif; color:white">Phone</h3>
+							<p style="font-family: 'Lemon', sans-serif; color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">(661) 577-5911</a></p>
+						</section>
+						
+					</section>
+					<section class="split contact">
+						<section style="font-family: 'Lemon', sans-serif; color:white" class="alt">
+							<h3 style="font-family: 'Lemon', sans-serif; color:white">Email</h3>
+							<p style="font-family: 'Lemon', sans-serif; color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">jeremydimas10@gmail.com</a></p>
+						</section>
+						<section>
+							<h3 style="font-family: 'Lemon', sans-serif; color:white">Social</h3>
+							<ul style="font-family: 'Lemon', sans-serif; color:white" class="icons alt">
+								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://twitter.com/jeremydimas_" class="icon brands alt fa-twitter"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Twitter</span></a></li>
+								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://www.instagram.com/jeremy_dimas/" class="icon brands alt fa-instagram"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Instagram</span></a></li>
+								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://www.linkedin.com/in/jeremy-dimas/" class="icon brands alt fa-linkedin"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">LinkedIn</span></a></li>
+								
+								<!--<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>-->
+							</ul>
+						</section>
+						<form method="post" action="#">
+							<div class="fields">
+								<!--<div class="field">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input type="text" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="3"></textarea>
+								</div>-->
+							</div>
+							<!--<ul class="actions">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>-->
+						</form>
+					</section>
+					
+				</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li><!--&copy; Untitled--></li><li><!--Design: <a href="https://html5up.net">HTML5 UP</a>--></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
