@@ -61,12 +61,12 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1 style="font-family: 'Lemon', sans-serif; font-size: 45px; text-align: center; margin-top: 0 auto; ">
+									<h1 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-size: 45px; text-align: center; margin-top: 0 auto; ">
 										Bomb Lab</h1>
 								</header>
 
 								<!-- Text stuff -->
-								<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Objective</h2>
+								<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);margin-top: 0 auto; ">Objective</h2>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Bomb Lab consists of six phases, each unique and more difficult to defuse progressively. There are 3 "free" attempts at exploding the bomb without being penalized, but after 3 attempts at exploding the bomb, the limit will be 20 explosions. Bomb Lab is a very complex project and difficult to understand at first but to give you an idea of what Bomb Lab actually is, I'll be going over phase one (the easiest of them all). </p>
 									<hr/>
 								
@@ -78,12 +78,12 @@
 									</div>
 								</div>
 
-								<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Phase 1</h2>
-								<span class="image fit"><img src="images/phase1.jpg" alt="" /></span>
+								<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px;text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5); margin-top: 0 auto; ">Phase 1</h2>
+								<span class="image fit"><img src="images/phase1.png" alt="" /></span>
 								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">This is Assembly Language. Phase 1 is a function checking for a specific input to be true and pop (return). </p>
 								<span class="image fit"><img src="images/space.png" alt="" /></span>
 								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Looking at the first 2 lines (highlighted in pink), we're making space to push %rbx onto our stack and we're moving some value "%rdi" into %rbx. After reading the 3rd line we know that our answer is a character of length one given by the offset 0x1(%rdi).</p>
-								<span class="image fit"><img src="images/jump.jpg" alt="" /></span>
+								<span class="image fit"><img src="images/jump.png" alt="" /></span>
 								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Here we can see that our function is checking if our answer isn't a character of length one and isn't equal to what $0x6c and %rbx is being compared to, then the bomb will explode.</p>
 								
 								<span class="image fit"><img src="images/L.png" alt="" /></span>
@@ -112,26 +112,26 @@
 				<footer id="footer">
 					<section class="split contact">
 						<section class="alt">
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Address</h3>
-							<p style="font-family: 'Lemon', sans-serif; color:white">405 Hilgard Avenue, Los Angeles, CA 90095<br />
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Address</h3>
+							<p style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">405 Hilgard Avenue, Los Angeles, CA 90095<br />
 							</p>
 						</section>
 						<section >
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Phone</h3>
-							<p style="font-family: 'Lemon', sans-serif; color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">(661) 577-5911</a></p>
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Phone</h3>
+							<p style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">(661) 577-5911</a></p>
 						</section>
 					</section>
 					<section class="split contact">
-						<section style="font-family: 'Lemon', sans-serif; color:white" class="alt">
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Email</h3>
-							<p style="font-family: 'Lemon', sans-serif; color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">jeremydimas10@gmail.com</a></p>
+						<section style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" class="alt">
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Email</h3>
+							<p style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">jeremydimas10@gmail.com</a></p>
 						</section>
 						<section>
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Social</h3>
-							<ul style="font-family: 'Lemon', sans-serif; color:white" class="icons alt">
-								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://twitter.com/jeremydimas_" class="icon brands alt fa-twitter"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Twitter</span></a></li>
-								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://www.instagram.com/jeremy_dimas/" class="icon brands alt fa-instagram"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Instagram</span></a></li>
-								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://www.linkedin.com/in/jeremy-dimas/" class="icon brands alt fa-linkedin"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">LinkedIn</span></a></li>
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Social</h3>
+							<ul style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" class="icons alt">
+								<li><a style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" href="https://twitter.com/jeremydimas_" class="icon brands alt fa-twitter"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Twitter</span></a></li>
+								<li><a style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" href="https://www.instagram.com/jeremy_dimas/" class="icon brands alt fa-instagram"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Instagram</span></a></li>
+								<li><a style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" href="https://www.linkedin.com/in/jeremy-dimas/" class="icon brands alt fa-linkedin"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">LinkedIn</span></a></li>
 								<!--<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>-->
 							</ul>
 						</section>
