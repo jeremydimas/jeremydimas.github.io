@@ -88,61 +88,135 @@
 									<hr/>
 
 									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Encoding Instructions</h2>
-									<span class="image fit"><img src="images/Enc.png" alt="" /></span>
+									<span class="image-center">
+										<img src="images/Enc.png" alt="">
+									</span>
+									  <style>
+										.image-center {
+										  display: block;
+										  text-align: center;
+										  margin: 0 auto;
+										}
+									  
+										.image-center img {
+										  width: 100%;
+										  max-width: 700px; /* Adjust max-width for larger screens */
+										  height: auto;
+										}
+									  
+										@media (max-width: 768px) {
+										  .image-center img {
+											width: 100%; /* Image stays at 100% on phone screens */
+											max-width: none;
+										  }
+										}
+									  </style>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We are given a set of encoding instructions that will help us find our addresses to create an attack.</p>
 									<hr/>
 									
 									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Gadget 1</h2>
-									<span class="image fit"><img src="images/g1.jpeg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/g1.jpeg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/g1.png" alt="">
+									</span>
+									  <style>
+										.image-gad {
+										  display: block;
+										  text-align: center;
+										  margin: 0 auto;
+										}
+									  
+										.image-gad img {
+										  width: 100%;
+										  max-width: 1000px; /* Adjust max-width for larger screens */
+										  height: auto;
+										}
+									  
+										@media (max-width: 768px) {
+										  .image-gad img {
+											width: 100%; /* Image stays at 100% on phone screens */
+											max-width: none;
+										  }
+										}
+									  </style>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">First, we look at the bytes that %rsp points to at %rax and we can see it's "48 89 e0."</p>
-									<span class="image fit"><img src="images/g1a.jpeg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/g1a.jpeg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/g1a.png" alt="">
+									</span>
+									  
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">This is snippet from the assembly function "start_farm" where we've found the bytes "48 89 e0" (highlighted in pink). We can see that these bytes were found at the address 4019cb, however we must also consider the offset which is two (highlighted in green). Therefore our address for gadget one is 0x4019cd because 0x4019cb + 0x2 = 0x4019cd.</p>
 									<hr/>
 									
 									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Gadget 2</h2>
-									<span class="image fit"><img src="images/g2.jpeg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/g2.jpeg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/g2.png" alt="">
+									</span>
+									  
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We have to see what're the bytes that %rax points to at %rdi and we can see it's "48 89 c7."</p>
-									<span class="image fit"><img src="images/g2a.jpeg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/g2a.jpeg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/g2a.png" alt="">
+									</span>
+									  
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Here we've found the bytes "48 89 c7" (highlighted in blue) but notice that there are four of the same bytes in different addresses to choose from. In our case we're only focused on the bytes that're followed by "c3" first for "return." Therefore the address we're looking at is 40190c and considering the offset of two, our address for gadget two is 0x40190e because 0x40190c + 0x2 = 0x40190e.</p>
 									<hr/>
 									
 									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Pop byte for %rax</h2>
-									<span class="image fit"><img src="images/p.jpeg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/p.jpeg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/p.png" alt="">
+									</span>
+									  
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We pop %rax and see that the byte we're looking for is "58".</p>
-									<span class="image fit"><img src="images/pa.jpeg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/pa.jpeg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/pa.png" alt="">
+									</span>
+									  
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Here we've found the byte "58" (highlighted in pink) is at the address 401935 with an offset of five. Our address for popping %rax is 0x40193a because 0x401935 + 0x5 = 0x40193a.</p>
 									<hr/>
 									
 									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">New Address for %eax -> %esi</h2>
-									<span class="image fit"><img src="images/axsi.jpg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/axsi.jpg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/axsi.png" alt="">
+									</span>
+									  
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We're supposed to be looking at the bytes that %eax points to at %esi however they're not to be found in the assembly dump. To resolve this issue, we must look through %esi's column and see what other registers can get to %esi while still traveling through %eax. The register, %ecx, is an option that worked for this attack.</p>
-									<span class="image fit"><img src="images/cxsi.jpeg" alt="" /></span>
+									<!-- <span class="image fit"><img src="images/cxsi.jpeg" alt="" /></span> -->
+									<span class="image-gad">
+										<img src="images/cxsi.png" alt="">
+									</span>
+									  
+
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We're looking for bytes "89 ce" and have found them at this address followed after bytes "20 c0". </p>
-									<span class="image fit"><img src="images/m1.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/m1.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">This is okay because bytes "20 c0" are NOP's (not operational) instructions as seen below.</p>
-									<span class="image fit"><img src="images/n1.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/n1.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The new address that %ecx points to at %esi is 0x4019f5 + 0x1 (offset) = 0x4019f6. At this point we'd check to see if %eax can be passed into %ecx to get to %esi, but unfortunately this isn't the case. The next register that worked for this attack is %edx.</p>
-									<span class="image fit"><img src="images/dxcx.jpeg" alt="" /></span>
+									<span class="image-gad"><img src="images/dxcx.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We're looking for bytes "89 d1" and have found them at this address followed after bytes "20 db". </p>
-									<span class="image fit"><img src="images/m2.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/m2.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">This is okay because bytes "20 db" are NOP's (not operational) instructions as seen below.</p>
-									<span class="image fit"><img src="images/n3.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/n3.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The new address that %edx points to at %ecx is 0x40198a + 0x1 (offset) = 0x40198b. We can check to see if %eax can be passed into %edx to get to %esi and this time it's possible.</p>
-									<span class="image fit"><img src="images/axdx.jpeg" alt="" /></span>
+									<span class="image-gad"><img src="images/axdx.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We're looking for bytes "89 c2" and have found them at this address followed after bytes "20 c9". </p>
-									<span class="image fit"><img src="images/m3.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/m3.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">This is okay because bytes "20 c9" are NOP's (not operational) instructions as seen below.</p>
-									<span class="image fit"><img src="images/n2.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/n2.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The new address that %eax points to at %edx is 0x4019a4 + 0x2 (offset) = 0x4019a6. We now have registers that pass %eax -> %esi through %eax -> %edx -> %ecx -> %esi.</p>
 									<hr/>
 									
 									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Address of "add_xy"</h2>
-									<span class="image fit"><img src="images/add_xy.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/add_xy.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The address is 0x401948.</p>
 									<hr/>
 
 									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Cookie Address as a String</h2>
-									<span class="image fit"><img src="images/cookie.jpg" alt="" /></span>
+									<span class="image-gad"><img src="images/cookie.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We use the Ascii Table to convert each character into hexadecimals to become a single string. The address of our cookie (0x55e61a88) is "35 35 65 36 31 61 38 38" as a string.</p>
 									<hr/>
 
