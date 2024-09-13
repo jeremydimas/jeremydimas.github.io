@@ -88,21 +88,41 @@
 								</div>
 
 								<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">How does the game work?</h2>
-								<span class="image fit"><img src="images/start.jpg" alt="" /></span>
+								<span class="image-manc"><img src="images/start.png" alt="" /></span>
+								<style>
+									.image-manc {
+									  display: block;
+									  text-align: center;
+									  margin: 0 auto;
+									}
+								  
+									.image-manc img {
+									  width: 100%;
+									  max-width: 2000px; /* Adjust max-width for larger screens */
+									  height: auto;
+									}
+								  
+									@media (max-width: 768px) {
+									  .image-manc img {
+										width: 100%; /* Image stays at 100% on phone screens */
+										max-width: none;
+									  }
+									}
+								  </style>
 								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The game consists of a North side (Homer) and South side (Marge) with North's pot being on the left side of the screen and South's pot being on the right side of the screen. South side is player one and will always go first, while North side is player two and will follow after. Marge chooses to move her beans from pot one and Homer chooses to move his beans from pot one as well. Every time someone chooses to make a move, a new display will be generated after a turn is completed (courtesy of the Game class), hence there are three displays of the board. (The game is played going clockwise direction.)</p>
-								<span class="image fit"><img src="images/t2.jpg" alt="" /></span>
+								<span class="image-manc"><img src="images/t2.png" alt="" /></span>
 								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Marge decides to move her beans from pot two but notice right after her turn is completed, Homer was able to have four turns completed total before Marge's turn. This is because the last bean that was placed in each of Homer's turns landed last in the pot, therefore he is able to receive another turn. Ideally when playing an actual person you'd hope the person you're playing against doesn't have this level of IQ, but because of the SmartPlayer class and the algorithm that was created for this game, the AI model (North side) already has this intuition and will make these attempts whenever possible.</p>
-								<span class="image fit"><img src="images/t3.jpg" alt="" /></span>
+								<span class="image-manc"><img src="images/t3.png" alt="" /></span>
 								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Marge can only move her beans from pot three. Homer completes his attempts and the turn goes back to Marge, however since Marge no longer has any more beans to move (sow) the beans leftover automatically get transferred over to the pertaining side. Homer obtained the most beans with 10, therefore Homer wins!</p>
 								<hr/>
 								<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">You can't "outsmart" the game</h2>
-								<span class="image fit"><img src="images/proof.jpg" alt="" /></span>
+								<span class="image-manc"><img src="images/proof.png" alt="" /></span>
 								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The game will only accept valid inputs depending on the number of holes per side, in this case only 1,2, or 3.</p>
 								<hr/>
 								<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Play the game</h2>
 	
 								
-								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Here is a download <a href = "https://web.cs.ucla.edu/classes/spring23/cs32/Projects/3/minikalahmac.zip"> <b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">link</b></a> to a mini-version of the game. (This will work only on PC-Laptop devices alike.) On a Mac, if you click on the downloaded zip file and then double-click on the executable file (e.g., minikalahmac), your operating system may refuse to open it because it can't confirm who developed the program. In that case, right-click on the executable instead through your "Downloads" folder, select Open With and then Terminal.app. Select the gray Open button on the popup that again says it doesn't know the developer and the game will be ready to play. (This might not be yet accessible on Windows yet, but feel free to try it in case it does work.) Have fun!</p>
+								<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Here is a download <a href = "https://web.cs.ucla.edu/classes/spring23/cs32/Projects/3/minikalahmac.zip"> <b style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">link</b></a> to a mini-version of the game. (This link will work only on PC-Laptop devices and you have to be connected to UCLA's VPN or WiFi.) On a Mac, if you click on the downloaded zip file and then double-click on the executable file (e.g., minikalahmac), your operating system may refuse to open it because it can't confirm who developed the program. In that case, right-click on the executable instead through your "Downloads" folder, select Open With and then Terminal.app. Select the gray Open button on the popup that again says it doesn't know the developer and the game will be ready to play. (This might not be yet accessible on Windows yet, but feel free to try it in case it does work.) Have fun!</p>
 								
 
 
