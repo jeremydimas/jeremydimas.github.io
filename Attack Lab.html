@@ -6,6 +6,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel = "icon" href = "images/16proProfileJeremy.ico" sizes = "16x16" type = "images/x-icon">
+		<link rel = "icon" href = "images/32proProfileJeremy.ico" sizes = "32x32" type = "images/x-icon">
+		<link rel = "icon" href = "images/48proProfileJeremy.ico" sizes = "48x48" type = "images/x-icon">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			@font-face {
@@ -61,16 +64,16 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1 style="font-family: 'Lemon', sans-serif; font-size: 45px; text-align: center; margin-top: 0 auto; ">
+									<h1 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 45px; text-align: center; margin-top: 0 auto; ">
 										Attack Lab</h1>
 								</header>
 
 								<!-- Text stuff -->
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Objective</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Objective</h2>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Attack Lab consists of five phases, each unique and more difficult to create an attack progressively. Attack Lab is a very complex project and difficult to understand at first but to give you an idea of what Attack Lab actually is, I'll be going over phase five (the hardest phase of them all and arguably more difficult than Bomb Lab). </p>
 									<hr/>
 									
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Context</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Context</h2>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">To create an attack for this phase, some of the solution was built during the process of reaching phase five, so for this phase we're given our buffer (56 bytes of zeroes), our cookie address (0x55e61a88), and address of Touch Three function (0x40187e). Our solution for this phase is:</p>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Buffer</p>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Gadget One (%rsp -> %rax)</p>
@@ -84,33 +87,33 @@
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Cookie Address as a String</p>
 									<hr/>
 
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Encoding Instructions</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Encoding Instructions</h2>
 									<span class="image fit"><img src="images/Enc.png" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We are given a set of encoding instructions that will help us find our addresses to create an attack.</p>
 									<hr/>
 									
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Gadget 1</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Gadget 1</h2>
 									<span class="image fit"><img src="images/g1.jpeg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">First, we look at the bytes that %rsp points to at %rax and we can see it's "48 89 e0."</p>
 									<span class="image fit"><img src="images/g1a.jpeg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">This is snippet from the assembly function "start_farm" where we've found the bytes "48 89 e0" (highlighted in pink). We can see that these bytes were found at the address 4019cb, however we must also consider the offset which is two (highlighted in green). Therefore our address for gadget one is 0x4019cd because 0x4019cb + 0x2 = 0x4019cd.</p>
 									<hr/>
 									
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Gadget 2</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Gadget 2</h2>
 									<span class="image fit"><img src="images/g2.jpeg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We have to see what're the bytes that %rax points to at %rdi and we can see it's "48 89 c7."</p>
 									<span class="image fit"><img src="images/g2a.jpeg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Here we've found the bytes "48 89 c7" (highlighted in blue) but notice that there are four of the same bytes in different addresses to choose from. In our case we're only focused on the bytes that're followed by "c3" first for "return." Therefore the address we're looking at is 40190c and considering the offset of two, our address for gadget two is 0x40190e because 0x40190c + 0x2 = 0x40190e.</p>
 									<hr/>
 									
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Pop byte for %rax</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Pop byte for %rax</h2>
 									<span class="image fit"><img src="images/p.jpeg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We pop %rax and see that the byte we're looking for is "58".</p>
 									<span class="image fit"><img src="images/pa.jpeg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">Here we've found the byte "58" (highlighted in pink) is at the address 401935 with an offset of five. Our address for popping %rax is 0x40193a because 0x401935 + 0x5 = 0x40193a.</p>
 									<hr/>
 									
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">New Address for %eax -> %esi</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">New Address for %eax -> %esi</h2>
 									<span class="image fit"><img src="images/axsi.jpg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We're supposed to be looking at the bytes that %eax points to at %esi however they're not to be found in the assembly dump. To resolve this issue, we must look through %esi's column and see what other registers can get to %esi while still traveling through %eax. The register, %ecx, is an option that worked for this attack.</p>
 									<span class="image fit"><img src="images/cxsi.jpeg" alt="" /></span>
@@ -133,17 +136,17 @@
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The new address that %eax points to at %edx is 0x4019a4 + 0x2 (offset) = 0x4019a6. We now have registers that pass %eax -> %esi through %eax -> %edx -> %ecx -> %esi.</p>
 									<hr/>
 									
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Address of "add_xy"</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Address of "add_xy"</h2>
 									<span class="image fit"><img src="images/add_xy.jpg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">The address is 0x401948.</p>
 									<hr/>
 
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Cookie Address as a String</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">Cookie Address as a String</h2>
 									<span class="image fit"><img src="images/cookie.jpg" alt="" /></span>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We use the Ascii Table to convert each character into hexadecimals to become a single string. The address of our cookie (0x55e61a88) is "35 35 65 36 31 61 38 38" as a string.</p>
 									<hr/>
 
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">ROP Attack</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">ROP Attack</h2>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">We now have all the sufficient information to create our ROP attack:</p>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">00 00 00 00 00 00 00 00</p>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">00 00 00 00 00 00 00 00</p>
@@ -165,7 +168,7 @@
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">35 35 65 36 31 61 38 38</p>
 									<hr/>
 
-									<h2 style="font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">But what about the extra row of zeroes?</h2>
+									<h2 style="text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);font-family: 'Lemon', sans-serif; font-size: 25px; margin-top: 0 auto; ">But what about the extra row of zeroes?</h2>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">That is actually our own buffer for our optcodes. So we need to have enough space for the empty row to the touch 3 address. In this case there are only 6 rows of 8 bits so 48 bits of space. Hence, the FINAL solution is the following below. (You may have noticed that my addresses are written backwords. This is because of a concept called "Little Endianness" in which the least significant bit (or "littlest" end) is first stored at address 0, and subsequent bits are stored incrementally.)</p>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">00 00 00 00 00 00 00 00</p>
 									<p style="font-family: 'Lemon', sans-serif; font-size: 14px;  color:white;">00 00 00 00 00 00 00 00</p>
@@ -195,58 +198,40 @@
 									<div class="row gtr-uniform"></div>
 								</form>
 							</section>
+
+							<ul class="actions special">
+								<li><a href="index.html" class="button large">Done</a></li>
+							</ul>
 					</div>
 
 				<!-- Footer -->
 				<footer id="footer">
 					<section class="split contact">
 						<section class="alt">
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Address</h3>
-							<p style="font-family: 'Lemon', sans-serif; color:white">405 Hilgard Avenue, Los Angeles, CA 90095<br />
-							<!--Nashville, TN 00000-0000--></p>
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Address</h3>
+							<p style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">405 Hilgard Avenue, Los Angeles, CA 90095<br />
+							</p>
 						</section>
 						<section >
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Phone</h3>
-							<p style="font-family: 'Lemon', sans-serif; color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">(661) 577-5911</a></p>
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Phone</h3>
+							<p style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">(661) 577-5911</a></p>
 						</section>
-						
 					</section>
 					<section class="split contact">
-						<section style="font-family: 'Lemon', sans-serif; color:white" class="alt">
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Email</h3>
-							<p style="font-family: 'Lemon', sans-serif; color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">jeremydimas10@gmail.com</a></p>
+						<section style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" class="alt">
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Email</h3>
+							<p style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white"><a style="font-family: 'Lemon', sans-serif; color:white" href="#">jeremydimas10@gmail.com</a></p>
 						</section>
 						<section>
-							<h3 style="font-family: 'Lemon', sans-serif; color:white">Social</h3>
-							<ul style="font-family: 'Lemon', sans-serif; color:white" class="icons alt">
-								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://twitter.com/jeremydimas_" class="icon brands alt fa-twitter"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Twitter</span></a></li>
-								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://www.instagram.com/jeremy_dimas/" class="icon brands alt fa-instagram"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Instagram</span></a></li>
-								<li><a style="font-family: 'Lemon', sans-serif; color:white" href="https://www.linkedin.com/in/jeremy-dimas/" class="icon brands alt fa-linkedin"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">LinkedIn</span></a></li>
-								
+							<h3 style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white">Social</h3>
+							<ul style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" class="icons alt">
+								<li><a style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" href="https://twitter.com/jeremydimas_" class="icon brands alt fa-twitter"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Twitter</span></a></li>
+								<li><a style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" href="https://www.instagram.com/jeremy_dimas/" class="icon brands alt fa-instagram"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">Instagram</span></a></li>
+								<li><a style="font-family: 'Lemon', sans-serif; text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);color:white" href="https://www.linkedin.com/in/jeremy-dimas/" class="icon brands alt fa-linkedin"><span style="font-family: 'Lemon', sans-serif; color:white" class="label">LinkedIn</span></a></li>
 								<!--<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>-->
 							</ul>
 						</section>
-						<form method="post" action="#">
-							<div class="fields">
-								<!--<div class="field">
-									<label for="name">Name</label>
-									<input type="text" name="name" id="name" />
-								</div>
-								<div class="field">
-									<label for="email">Email</label>
-									<input type="text" name="email" id="email" />
-								</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="3"></textarea>
-								</div>-->
-							</div>
-							<!--<ul class="actions">
-								<li><input type="submit" value="Send Message" /></li>
-							</ul>-->
-						</form>
 					</section>
-					
 				</footer>
 
 				<!-- Copyright -->
